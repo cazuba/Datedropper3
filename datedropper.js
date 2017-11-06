@@ -1370,6 +1370,11 @@
 				picker_render_calendar();
 			}
 		},
+		picker_clear_values = function() {
+			picker
+			.input
+			.val('');
+		},
 		picker_translate_onoff = function() {
 			get_picker_els('ul.pick.pick-l').toggleClass('visible');
 		},
@@ -1814,6 +1819,12 @@
 		picker_large_onoff();
 	})
 
+	//BUTTON CLEAR/EMPTY VALUES
+	.on('click',picker_node_el+' .pick-btn-rm',function(){
+		picker_clear_values();
+		picker_hide();
+	})
+	
 	//BUTTON TRANSLATE-MODE
 	.on('click',picker_node_el+' .pick-btn-lng',function(){
 		picker_translate_onoff();
@@ -1985,6 +1996,7 @@
 					picker_lang = (input.data('lang')&&(input.data('lang') in i18n)) ? input.data('lang') : 'en',
 					picker_large = (input.data('large-mode')===true) ? true : false,
 					picker_large_class = (input.data('large-default')===true && picker_large===true) ? 'picker-lg' : '',
+					picer_clear = (input.data('clear-button')===true) ? true : false,
 					picker_lock = (input.data('lock')=='from'||input.data('lock')=='to') ? input.data('lock') : false,
 					picker_jump = (input.data('jump')&&is_int(input.data('jump'))) ? input.data('jump') : 10,
 					picker_max_year = (input.data('max-year')&&is_int(input.data('max-year'))) ? input.data('max-year') : new Date().getFullYear(),
@@ -2008,6 +2020,7 @@
 					fxmobile : picker_fx_mobile,
 					lang : picker_lang,
 					large : picker_large,
+					clear : picer_clear,
 					lock : picker_lock,
 					jump : picker_jump,
 					key : {
@@ -2130,6 +2143,13 @@
 				if(pickers[picker.id].large) {
 					$('<div>', {
 						class: 'pick-btn pick-btn-sz'
+					})
+					.appendTo(get_picker_els('.pick-btns'));
+				}
+
+				if(pickers[picker.id].clear) {
+					$('<div>', {
+						class: 'pick-btn pick-btn-rm'
 					})
 					.appendTo(get_picker_els('.pick-btns'));
 				}
