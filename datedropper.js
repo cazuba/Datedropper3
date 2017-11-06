@@ -1824,6 +1824,7 @@
 		picker_clear_values();
 		picker_hide();
 	})
+	
 	//BUTTON TRANSLATE-MODE
 	.on('click',picker_node_el+' .pick-btn-lng',function(){
 		picker_translate_onoff();
