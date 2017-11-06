@@ -478,8 +478,19 @@ div.datedropper .picker .pick-btns .pick-btn.pick-btn-sz {
   right: 0;
   transform-origin: right bottom;
 }
+div.datedropper .picker .pick-btns .pick-btn.pick-btn-rm {
+  font-size: 20px;
+  left: 0;
+  transform-origin: right bottom;
+}
 div.datedropper .picker .pick-btns .pick-btn.pick-btn-sz:after {
   content: "\63";
+}
+div.datedropper .picker .pick-btns .pick-btn.pick-btn-rm:after {
+  color: #fd4741;
+  content: '\00d7';
+  font-family: Arial, sans-serif;
+  font-weight: 300;
 }
 div.datedropper .picker .pick-btns .pick-btn.pick-btn-lng {
   left: 0;
@@ -503,6 +514,12 @@ div.datedropper.picker-lg .pick-lg {
 }
 div.datedropper.picker-lg .pick-btns .pick-btn.pick-btn-sz:after {
   content: "\61";
+}
+div.datedropper.picker-lg .pick-btns .pick-btn.pick-btn-rm:after {
+  color: #fd4741;
+  content: '\00d7';
+  font-family: Arial, sans-serif;
+  font-weight: 300;
 }
 @media only screen and (max-width: 480px) {
   div.datedropper.picker-lg {
